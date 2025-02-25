@@ -1,0 +1,1 @@
+export { DoubleTile } from "./DoubleTile";

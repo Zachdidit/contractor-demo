@@ -2,11 +2,11 @@ const baseURL = "demo.once-ui.com";
 
 // default customization applied to the HTML in the main layout.tsx
 const style = {
-  theme: "dark", // dark | light
+  theme: "light", // dark | light
   neutral: "gray", // sand | gray | slate
   brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  solid: "contrast", // color | contrast | inverse
+  solid: "color", // color | contrast | inverse
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
   surface: "filled", // filled | translucent
@@ -16,9 +16,9 @@ const style = {
 
 // default metadata
 const meta = {
-  title: "Once UI - Your Personalized Design System for Next.js",
+  title: "Groh Contractors",
   description:
-    "An open-source design system and component library for Next.js that emphasizes easy styling and accessibility in UI development.",
+    "Groh Contractors",
 };
 
 // default open graph data
@@ -32,9 +32,9 @@ const og = {
 // default schema data
 const schema = {
   logo: "",
-  type: "Organization",
-  name: "One UI",
-  description: "Once UI is an open-source design system and component library for Next.js.",
+  type: "Business",
+  name: "Groh Contractors",
+  description: "Groh Contractors",
   email: "",
 };
 

@@ -1,3 +1,4 @@
+import "@/app/styles/index.scss";
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
@@ -5,11 +6,15 @@ import classNames from "classnames";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 
+
 import { baseURL, style, meta, og, schema, social } from "@/once-ui/resources/config";
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
 
 import { Inter } from "next/font/google";
 import { Roboto_Mono } from "next/font/google";
+
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 const primary = Inter({
   variable: "--font-primary",
@@ -86,7 +91,7 @@ const schemaData = {
   description: schema.description,
   email: schema.email,
   sameAs: Object.values(social).filter(Boolean),
-};
+}
 
 export default function RootLayout({
   children,
@@ -123,6 +128,7 @@ export default function RootLayout({
             __html: JSON.stringify(schemaData),
           }}
         />
+
       </head>
       <ToastProvider>
         <Column as="body" fillWidth  margin="0" padding="0">
@@ -133,26 +139,12 @@ export default function RootLayout({
               y: 0,
               radius: 100,
             }}
-            gradient={{
-              display: true,
-              x: 100,
-              y: 60,
-              width: 70,
-              height: 50,
-              tilt: -40,
-              opacity: 90,
-              colorStart: "accent-background-strong",
-              colorEnd: "page-background",
-            }}
-            grid={{
-              display: true,
-              opacity: 100,
-              width: "0.25rem",
-              color: "neutral-alpha-medium",
-              height: "0.25rem",
-            }}
           />
-          {children}
+			<Navbar />
+			<Column fillWidth  margin="0" padding="0">
+				{children}
+			</Column>
+			<Footer />
         </Column>
       </ToastProvider>
     </Flex>
