@@ -1,4 +1,12 @@
-import { Text, Flex, Grid, Icon, Row, Column, Background } from "@/once-ui/components";
+import {
+  Text,
+  Flex,
+  Grid,
+  Icon,
+  Row,
+  Column,
+  Background,
+} from "@/once-ui/components";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -18,13 +26,13 @@ export default function Navbar() {
       title: "Gallery",
       description: "",
     },
-	{
-		href: "/contact",
-		title: "Contact",
-		description: "",
-	  },
+    {
+      href: "/contact",
+      title: "Contact",
+      description: "",
+    },
   ];
-  const gridColumns : Number = links.length;
+  const gridColumns: Number = links.length;
 
   return (
     <Row
@@ -34,20 +42,19 @@ export default function Navbar() {
       fillWidth
       center={true}
       flex={1}
-	  className = "nav z-index-5"
+      className="nav z-index-5"
     >
-
       <Grid
         radius="l"
         border="neutral-medium"
         borderStyle="solid"
         columns="4"
-		paddingLeft="2"
-		align="center"
+        paddingLeft="2"
+        align="center"
         tabletColumns="1"
         mobileColumns="1"
         maxWidth="xl"
-		className="background-white"
+        className="background-white"
       >
         {links.map((link) => (
           <Link
@@ -56,9 +63,9 @@ export default function Navbar() {
             key={link.href}
             href={link.href}
           >
-                <Text variant="body-strong-m" onBackground="neutral-strong">
-                  {link.title}
-                </Text>
+            <Text variant="body-strong-m" onBackground="neutral-strong">
+              {link.title}
+            </Text>
           </Link>
         ))}
       </Grid>

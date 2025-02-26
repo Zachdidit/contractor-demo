@@ -1,6 +1,15 @@
 "use client";
 
-import { Column, Icon, IconButton, Line, Row, Tag, Text, ToggleButton } from "@/once-ui/components";
+import {
+  Column,
+  Icon,
+  IconButton,
+  Line,
+  Row,
+  Tag,
+  Text,
+  ToggleButton,
+} from "@/once-ui/components";
 import { usePathname } from "next/navigation";
 
 const Sidebar: React.FC = ({}) => {
@@ -28,8 +37,17 @@ const Sidebar: React.FC = ({}) => {
             Dashboard
           </Text>
           <ToggleButton fillWidth justifyContent="flex-start" selected={true}>
-            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
-              <Icon name="PiHouseDuotone" onBackground="neutral-weak" size="xs" />
+            <Row
+              padding="4"
+              vertical="center"
+              gap="12"
+              textVariant="label-default-s"
+            >
+              <Icon
+                name="PiHouseDuotone"
+                onBackground="neutral-weak"
+                size="xs"
+              />
               Home
             </Row>
           </ToggleButton>
@@ -38,8 +56,17 @@ const Sidebar: React.FC = ({}) => {
             justifyContent="flex-start"
             selected={pathname === "analytics"}
           >
-            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
-              <Icon name="PiTrendUpDuotone" onBackground="neutral-weak" size="xs" />
+            <Row
+              padding="4"
+              vertical="center"
+              gap="12"
+              textVariant="label-default-s"
+            >
+              <Icon
+                name="PiTrendUpDuotone"
+                onBackground="neutral-weak"
+                size="xs"
+              />
               Analytics
             </Row>
           </ToggleButton>
@@ -51,24 +78,34 @@ const Sidebar: React.FC = ({}) => {
             justifyContent="flex-start"
             selected={pathname === "reports"}
           >
-            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
-              <Icon name="PiNotebookDuotone" onBackground="neutral-weak" size="xs" />
+            <Row
+              padding="4"
+              vertical="center"
+              gap="12"
+              textVariant="label-default-s"
+            >
+              <Icon
+                name="PiNotebookDuotone"
+                onBackground="neutral-weak"
+                size="xs"
+              />
               Reports
-              <Tag
-                variant="neutral"
-                size="s"
-                position="absolute"
-                right="8">
+              <Tag variant="neutral" size="s" position="absolute" right="8">
                 New
               </Tag>
             </Row>
           </ToggleButton>
         </Column>
 
-        <Line/>
+        <Line />
 
         <Column fillWidth gap="4">
-          <Text variant="body-default-xs" onBackground="neutral-weak" marginY="8" marginLeft="16">
+          <Text
+            variant="body-default-xs"
+            onBackground="neutral-weak"
+            marginY="8"
+            marginLeft="16"
+          >
             Management
           </Text>
           <ToggleButton
@@ -76,8 +113,13 @@ const Sidebar: React.FC = ({}) => {
             justifyContent="flex-start"
             selected={pathname === "users"}
           >
-            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
-            <Line width="16"/>
+            <Row
+              padding="4"
+              gap="12"
+              vertical="center"
+              textVariant="label-default-s"
+            >
+              <Line width="16" />
               Users
             </Row>
           </ToggleButton>
@@ -86,8 +128,13 @@ const Sidebar: React.FC = ({}) => {
             justifyContent="flex-start"
             selected={pathname === "roles"}
           >
-            <Row padding="4" vertical="center" gap="12" textVariant="label-default-s">
-            <Line width="16"/>
+            <Row
+              padding="4"
+              vertical="center"
+              gap="12"
+              textVariant="label-default-s"
+            >
+              <Line width="16" />
               Roles
             </Row>
           </ToggleButton>
@@ -96,14 +143,19 @@ const Sidebar: React.FC = ({}) => {
             justifyContent="flex-start"
             selected={pathname === "permissions"}
           >
-            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
-            <Line width="16"/>
+            <Row
+              padding="4"
+              gap="12"
+              vertical="center"
+              textVariant="label-default-s"
+            >
+              <Line width="16" />
               Permissions
             </Row>
           </ToggleButton>
         </Column>
 
-        <Line/>
+        <Line />
 
         <Column fill gap="4">
           <Row
@@ -116,15 +168,25 @@ const Sidebar: React.FC = ({}) => {
             <Text variant="body-default-xs" onBackground="neutral-weak">
               Projects
             </Text>
-            <IconButton tooltip="Create" variant="secondary" icon="plus" size="s" />
+            <IconButton
+              tooltip="Create"
+              variant="secondary"
+              icon="plus"
+              size="s"
+            />
           </Row>
           <ToggleButton
             fillWidth
             justifyContent="flex-start"
             selected={pathname === "overview"}
           >
-            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
-            <Line width="16"/>
+            <Row
+              padding="4"
+              gap="12"
+              vertical="center"
+              textVariant="label-default-s"
+            >
+              <Line width="16" />
               Overview
             </Row>
           </ToggleButton>
@@ -133,8 +195,13 @@ const Sidebar: React.FC = ({}) => {
             justifyContent="flex-start"
             selected={pathname === "projects"}
           >
-            <Row padding="4" gap="12" vertical="center" textVariant="label-default-s">
-              <Line width="16"/>
+            <Row
+              padding="4"
+              gap="12"
+              vertical="center"
+              textVariant="label-default-s"
+            >
+              <Line width="16" />
               My projects
             </Row>
           </ToggleButton>

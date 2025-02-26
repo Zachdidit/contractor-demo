@@ -23,7 +23,12 @@ interface HeaderProps {
   subline?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ authenticated, avatar, name, subline }) => {
+const Header: React.FC<HeaderProps> = ({
+  authenticated,
+  avatar,
+  name,
+  subline,
+}) => {
   const pathname = usePathname() ?? "";
 
   return (
@@ -37,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ authenticated, avatar, name, subline })
       background="surface"
     >
       <Row hide="s">
-        <Logo size="s"/>
+        <Logo size="s" />
       </Row>
       <Row show="s" gap="4" vertical="center">
         <NavIcon />
@@ -49,7 +54,10 @@ const Header: React.FC<HeaderProps> = ({ authenticated, avatar, name, subline })
             <Row hide="s" fillWidth gap="4" paddingX="l" vertical="center">
               <ToggleButton selected={true} label="Dashboard" />
               <ToggleButton selected={pathname === "/apps"} label="Apps" />
-              <ToggleButton selected={pathname === "/resources"} label="Resources" />
+              <ToggleButton
+                selected={pathname === "/resources"}
+                label="Resources"
+              />
             </Row>
           </Row>
           <Row as="nav">
@@ -65,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ authenticated, avatar, name, subline })
                   <Column padding="2" gap="2" minWidth={8}>
                     <Option label="Profile" value="profile" />
                     <Option label="Settings" value="settings" />
-                    <Line/>
+                    <Line />
                     <Option label="Log out" value="logout" />
                   </Column>
                 }

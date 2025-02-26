@@ -2,13 +2,7 @@ import { Text, Flex, Button, Column, Row } from "@/once-ui/components";
 
 export default function Footer() {
   return (
-    <Row
-      as="footer"
-      position="relative"
-      paddingX="l"
-      paddingY="m"
-    >
-
+    <Row as="footer" position="relative" paddingX="l" paddingY="m">
       <Text variant="body-default-s" onBackground="neutral-weak" align="center">
         © 2024 Zachary White
       </Text>

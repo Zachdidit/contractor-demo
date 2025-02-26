@@ -33,7 +33,8 @@ interface CommonProps {
   href?: string;
 }
 
-export type ToggleButtonProps = CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type ToggleButtonProps = CommonProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
   (
@@ -85,7 +86,7 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
         {...props}
       >
         {prefixIcon && (
-          <Icon name={prefixIcon} size={size === "l" ? "m" : "s"}/>
+          <Icon name={prefixIcon} size={size === "l" ? "m" : "s"} />
         )}
         {(label || children) && (
           <Flex
@@ -98,7 +99,7 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
           </Flex>
         )}
         {suffixIcon && (
-          <Icon name={suffixIcon} size={size === "l" ? "m" : "s"}/>
+          <Icon name={suffixIcon} size={size === "l" ? "m" : "s"} />
         )}
       </ElementType>
     );

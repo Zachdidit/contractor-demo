@@ -1,61 +1,63 @@
 @use "@/app/styles/animations.scss";
-.background-white{
-	background-color: white;
+.background-white {
+  background-color: white;
 }
 
-.not-visible{
-	visibility: hidden;
+.not-visible {
+  visibility: hidden;
 }
 
-.banner{
-	background-image: url('/images/decconc/dec1.jpg');
-	background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-	align-items: center;
-	font-size: 16px;
-	font-weight: 400;
-	.banner-text{
-		order: 0;
-		z-index: 1;
-		text-align: left;
-	}
-	.banner-button{
-		margin-top: 2em;
-	}
+.banner {
+  background-image: url("/images/decconc/dec1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  .banner-text {
+    order: 0;
+    z-index: 1;
+    text-align: left;
+  }
+  .banner-button {
+    margin-top: 2em;
+  }
 }
 
-.divider span{
-	border-block-start: 1px dashed #000;
-
+.divider span {
+  border-block-start: 1px dashed #000;
 }
-.background-overlay{
-	background-color: black;
-	opacity: 0.44;
-	position: absolute;
-	width: 100%;
-    height: 100%;
-	z-index: 0; /* Keeps it below the text */
+.background-overlay {
+  background-color: black;
+  opacity: 0.44;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Keeps it below the text */
 }
 
 .section-background {
-	background-image: url(/images/backgrounds/BG2.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-	z-index: 0;
-    opacity: 0.05;
-	inset: 0;
-    position: absolute;
-    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+  background-image: url(/images/backgrounds/BG2.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  opacity: 0.05;
+  inset: 0;
+  position: absolute;
+  transition:
+    background 0.3s,
+    border-radius 0.3s,
+    opacity 0.3s;
 }
-.background-offset{
-	filter: brightness(100%) contrast(100%) saturate(0%) blur(0px) hue-rotate(0deg);
+.background-offset {
+  filter: brightness(100%) contrast(100%) saturate(0%) blur(0px)
+    hue-rotate(0deg);
 }
-.service-tiles{
-	z-index: 1;
-	.service-tile{
-		align-items: center;
-	}
+.service-tiles {
+  z-index: 1;
+  .service-tile {
+    align-items: center;
+  }
 }
-

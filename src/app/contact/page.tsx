@@ -11,7 +11,7 @@ import {
   Background,
   Avatar,
   Column,
-  Row
+  Row,
 } from "@/once-ui/components";
 import Link from "next/link";
 
@@ -23,16 +23,11 @@ export default function Home() {
       overflow="hidden"
       fillWidth
       minHeight="0"
-	 >
-		<Column
-		as="main"
-		fillWidth
-		fillHeight
-		padding="l"
-		gap="l"
-		> Hello World
-    	</Column>
-	</Column>
-
+    >
+      <Column as="main" fillWidth fillHeight padding="l" gap="l">
+        {" "}
+        Hello World
+      </Column>
+    </Column>
   );
 }

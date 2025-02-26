@@ -50,7 +50,11 @@ export default function Home() {
   const [intro, setIntro] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [tags, setTags] = useState<string[]>(["UX / UI", "Design systems", "AI / ML"]);
+  const [tags, setTags] = useState<string[]>([
+    "UX / UI",
+    "Design systems",
+    "AI / ML",
+  ]);
   const [twoFA, setTwoFA] = useState(false);
 
   const handleSelect = (value: string) => {
@@ -224,14 +228,25 @@ export default function Home() {
               colorEnd: "static-transparent",
             }}
           />
-          <Column fillWidth horizontal="center" gap="32" padding="32" position="relative">
+          <Column
+            fillWidth
+            horizontal="center"
+            gap="32"
+            padding="32"
+            position="relative"
+          >
             <InlineCode radius="xl" shadow="m" fit paddingX="16" paddingY="8">
               Start by editing
               <Text onBackground="brand-medium" marginLeft="8">
                 app/page.tsx
               </Text>
             </InlineCode>
-            <Heading wrap="balance" variant="display-default-l" align="center" marginBottom="16">
+            <Heading
+              wrap="balance"
+              variant="display-default-l"
+              align="center"
+              marginBottom="16"
+            >
               We let designers code and developers design
             </Heading>
             <Button
@@ -243,7 +258,11 @@ export default function Home() {
               arrowIcon
             />
             <Column horizontal="center" paddingTop="64" fillWidth gap="24">
-              <Line maxWidth={4} marginBottom="16" background="neutral-alpha-medium" />
+              <Line
+                maxWidth={4}
+                marginBottom="16"
+                background="neutral-alpha-medium"
+              />
               <AvatarGroup
                 marginBottom="8"
                 reverse
@@ -257,7 +276,12 @@ export default function Home() {
                   },
                 ]}
               />
-              <Heading marginBottom="12" as="h2" align="center" variant="heading-default-l">
+              <Heading
+                marginBottom="12"
+                as="h2"
+                align="center"
+                variant="heading-default-l"
+              >
                 Brought to you by indie creators
                 <br /> behind stellar projects:
               </Heading>
@@ -296,7 +320,13 @@ export default function Home() {
               />
             </Column>
           </Column>
-          <Column fillWidth paddingX="32" gap="12" horizontal="center" position="relative">
+          <Column
+            fillWidth
+            paddingX="32"
+            gap="12"
+            horizontal="center"
+            position="relative"
+          >
             <Heading as="h2" variant="display-default-m">
               Showcase
             </Heading>
@@ -314,9 +344,19 @@ export default function Home() {
               overflow="hidden"
             >
               <Row fill hide="m">
-                <SmartImage src="/images/login.png" alt="Preview image" sizes="560px" />
+                <SmartImage
+                  src="/images/login.png"
+                  alt="Preview image"
+                  sizes="560px"
+                />
               </Row>
-              <Column fillWidth horizontal="center" gap="20" padding="32" position="relative">
+              <Column
+                fillWidth
+                horizontal="center"
+                gap="20"
+                padding="32"
+                position="relative"
+              >
                 <Background
                   mask={{
                     x: 100,
@@ -359,7 +399,12 @@ export default function Home() {
                   />
                 </Column>
                 <Row fillWidth paddingY="24">
-                  <Row onBackground="neutral-weak" fillWidth gap="24" vertical="center">
+                  <Row
+                    onBackground="neutral-weak"
+                    fillWidth
+                    gap="24"
+                    vertical="center"
+                  >
                     <Line />/<Line />
                   </Row>
                 </Row>
@@ -465,7 +510,9 @@ export default function Home() {
                     >
                       <Column gap="4">
                         <Text variant="body-default-m">08 / 27</Text>
-                        <Text variant="body-default-m">1234 5678 1234 5678</Text>
+                        <Text variant="body-default-m">
+                          1234 5678 1234 5678
+                        </Text>
                       </Column>
                       <Icon name="visa" size="xl" />
                     </Row>
@@ -475,7 +522,12 @@ export default function Home() {
             </TiltFx>
           </Row>
           <Column position="relative" fillWidth gap="-1">
-            <Row fillWidth vertical="center" horizontal="space-between" marginBottom="32">
+            <Row
+              fillWidth
+              vertical="center"
+              horizontal="space-between"
+              marginBottom="32"
+            >
               <Heading as="h3" variant="display-default-xs">
                 Fill in your card details
               </Heading>
@@ -643,7 +695,13 @@ export default function Home() {
             }}
           />
           <Column maxWidth={32} gap="-1">
-            <Feedback icon variant="success" radius={undefined} topRadius="l" zIndex={1}>
+            <Feedback
+              icon
+              variant="success"
+              radius={undefined}
+              topRadius="l"
+              zIndex={1}
+            >
               Your profile is public.
             </Feedback>
             <Column
@@ -658,7 +716,9 @@ export default function Home() {
             >
               <MediaUpload
                 border={undefined}
-                emptyState={<Row paddingBottom="80">Drag and drop or click to browse</Row>}
+                emptyState={
+                  <Row paddingBottom="80">Drag and drop or click to browse</Row>
+                }
                 position="absolute"
                 aspectRatio="16 / 9"
                 sizes="560px"
@@ -685,11 +745,17 @@ export default function Home() {
                 <Heading marginTop="24" as="h3" variant="display-default-m">
                   Lorant One
                 </Heading>
-                <Text align="center" onBackground="neutral-weak" marginBottom="24">
+                <Text
+                  align="center"
+                  onBackground="neutral-weak"
+                  marginBottom="24"
+                >
                   165 connections
                 </Text>
                 <SegmentedControl
-                  onToggle={(value) => console.log("SegmentedControl changed", value)}
+                  onToggle={(value) =>
+                    console.log("SegmentedControl changed", value)
+                  }
                   buttons={[
                     {
                       size: "l",
@@ -904,22 +970,38 @@ export default function Home() {
               height: "0.25rem",
             }}
           />
-          <Row position="relative" textVariant="display-default-m" align="center">
+          <Row
+            position="relative"
+            textVariant="display-default-m"
+            align="center"
+          >
             Learn more
           </Row>
         </Row>
         <Row fillWidth overflow="hidden">
-          <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
+          <Row
+            maxWidth="32"
+            borderTop="neutral-alpha-weak"
+            borderBottom="neutral-medium"
+          ></Row>
           <Row fillWidth border="neutral-alpha-weak" mobileDirection="column">
             {links.map((link, index) => (
-              <SmartLink unstyled fillWidth target="_blank" key={link.href} href={link.href}>
+              <SmartLink
+                unstyled
+                fillWidth
+                target="_blank"
+                key={link.href}
+                href={link.href}
+              >
                 <Card
                   fillWidth
                   padding="40"
                   gap="8"
                   direction="column"
                   background={undefined}
-                  borderRight={index < links.length - 1 ? "neutral-alpha-weak" : undefined}
+                  borderRight={
+                    index < links.length - 1 ? "neutral-alpha-weak" : undefined
+                  }
                   border={undefined}
                   radius={undefined}
                 >
@@ -929,14 +1011,22 @@ export default function Home() {
                     </Text>
                     <Icon size="s" name="arrowUpRight" />
                   </Row>
-                  <Text align="center" variant="body-default-s" onBackground="neutral-weak">
+                  <Text
+                    align="center"
+                    variant="body-default-s"
+                    onBackground="neutral-weak"
+                  >
                     {link.description}
                   </Text>
                 </Card>
               </SmartLink>
             ))}
           </Row>
-          <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
+          <Row
+            maxWidth="32"
+            borderTop="neutral-alpha-weak"
+            borderBottom="neutral-medium"
+          ></Row>
         </Row>
         <Row
           position="relative"
@@ -989,7 +1079,10 @@ export default function Home() {
         onHeightChange={(height) => setFirstDialogHeight(height)}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setIsFirstDialogOpen(false)}>
+            <Button
+              variant="secondary"
+              onClick={() => setIsFirstDialogOpen(false)}
+            >
               Close
             </Button>
           </>
@@ -1003,7 +1096,9 @@ export default function Home() {
             label="2FA"
             description="Enable two factor authentication"
           />
-          <Button onClick={() => setIsSecondDialogOpen(true)}>Change password</Button>
+          <Button onClick={() => setIsSecondDialogOpen(true)}>
+            Change password
+          </Button>
         </Column>
       </Dialog>
       <Dialog
@@ -1015,7 +1110,10 @@ export default function Home() {
         minHeight={firstDialogHeight}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setIsSecondDialogOpen(false)}>
+            <Button
+              variant="secondary"
+              onClick={() => setIsSecondDialogOpen(false)}
+            >
               Close
             </Button>
             <Button onClick={() => setIsSecondDialogOpen(false)}>Save</Button>

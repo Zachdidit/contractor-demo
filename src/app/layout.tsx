@@ -6,8 +6,14 @@ import classNames from "classnames";
 import { headers } from "next/headers";
 import { Metadata } from "next";
 
-
-import { baseURL, style, meta, og, schema, social } from "@/once-ui/resources/config";
+import {
+  baseURL,
+  style,
+  meta,
+  og,
+  schema,
+  social,
+} from "@/once-ui/resources/config";
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
 
 import { Inter } from "next/font/google";
@@ -53,11 +59,11 @@ export async function generateMetadata(): Promise<Metadata> {
       description: og.description,
       url: "https://" + baseURL,
       images: [
-				{
-					url: og.image,
-					alt: og.title,
-				},
-			],
+        {
+          url: og.image,
+          alt: og.title,
+        },
+      ],
       type: og.type as
         | "website"
         | "article"
@@ -73,11 +79,11 @@ export async function generateMetadata(): Promise<Metadata> {
         | "video.other",
     },
     twitter: {
-			card: 'summary_large_image',
-			title: og.title,
-			description: og.description,
-			images: [og.image],
-		},
+      card: "summary_large_image",
+      title: og.title,
+      description: og.description,
+      images: [og.image],
+    },
     metadataBase,
   };
 }
@@ -91,7 +97,7 @@ const schemaData = {
   description: schema.description,
   email: schema.email,
   sameAs: Object.values(social).filter(Boolean),
-}
+};
 
 export default function RootLayout({
   children,
@@ -128,10 +134,9 @@ export default function RootLayout({
             __html: JSON.stringify(schemaData),
           }}
         />
-
       </head>
       <ToastProvider>
-        <Column as="body" fillWidth  margin="0" padding="0">
+        <Column as="body" fillWidth margin="0" padding="0">
           <Background
             position="absolute"
             mask={{
@@ -140,11 +145,11 @@ export default function RootLayout({
               radius: 100,
             }}
           />
-			<Navbar />
-			<Column fillWidth  margin="0" padding="0">
-				{children}
-			</Column>
-			<Footer />
+          <Navbar />
+          <Column fillWidth margin="0" padding="0">
+            {children}
+          </Column>
+          <Footer />
         </Column>
       </ToastProvider>
     </Flex>

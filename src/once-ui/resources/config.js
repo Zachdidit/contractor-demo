@@ -17,8 +17,7 @@ const style = {
 // default metadata
 const meta = {
   title: "Groh Contractors",
-  description:
-    "Groh Contractors",
+  description: "Groh Contractors",
 };
 
 // default open graph data
@@ -26,7 +25,7 @@ const og = {
   title: "Once UI for Next.js",
   description: "We let designers code and developers design.",
   type: "website",
-  image: "/images/cover.jpg"
+  image: "/images/cover.jpg",
 };
 
 // default schema data
