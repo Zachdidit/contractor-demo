@@ -16,9 +16,76 @@ import {
 import Link from "next/link";
 import { url } from "inspector";
 import { DoubleTile } from "./components";
+import { useIsVisible } from "./hooks/useIsVisible";
+import { title } from "process";
 
 export default function Home() {
   const gridRef = React.useRef<HTMLDivElement>(null);
+  const gridTileRefs = React.useRef<HTMLDivElement[]>([]);
+  const isVisible = useIsVisible(gridRef);
+  const gridTileData = [
+    {
+      image: "/images/icons/driveway.png",
+      alt: "Concrete Driveways",
+      title: "Driveway Installations",
+      description:
+        "Let us create a durable and long-lasting driveway for your commercial, residential, or industrial property. We use high-quality materials designed to withstand the test of time.",
+    },
+    {
+      image: "/images/icons/patio.png",
+      alt: "Concrete Patios",
+      title: "Patios and Walkways",
+      description:
+        "Looking to add a patio to your property? Contact us today! We also install durable concrete walkways. Get your FREE estimate now!",
+    },
+    {
+      image: "/images/icons/foundation.png",
+      alt: "Concrete Foundations",
+      title: "Foundations and Slabs",
+      description:
+        "Get expert concrete services, including new slabs, foundation walls, and more.",
+    },
+    {
+      image: "/images/icons/publicwork.png",
+      alt: "Public Works",
+      title: "Public Works",
+      description:
+        "Choose us for reliable public works concrete services! We handle city sidewalks, gutters, driveway approaches, and permit requests. Contact us today!",
+    },
+    {
+      image: "/images/icons/wheelchair.png",
+      alt: "Wheelchair Ramps",
+      title: "Wheelchair Ramps",
+      description:
+        "Reliable and effective handicap ramp solutions for your home, office, or business.",
+    },
+    {
+      image: "/images/icons/industrial.png",
+      alt: "Industrial Services",
+      title: "Industrial Services",
+      description:
+        "Trust us for your next industrial concrete installation project. We specialize in equipment pads, warehouse floors, flowlines, and parking lots, delivering durable and high-quality results.",
+    },
+  ];
+
+  React.useEffect(() => {
+    if (isVisible) {
+      gridTileRefs.current?.forEach((gridTileRef, i) => {
+        if (i % 3 == 0) {
+          gridTileRef.classList.add("fadeInLeft");
+        } else if (i % 3 == 2) {
+          gridTileRef.classList.add("fadeInRight");
+        } else if (i == 1) {
+          gridTileRef.classList.add("fadeInDown");
+        } else if (i == 4) {
+          gridTileRef.classList.add("fadeInUp");
+        }
+
+        gridTileRef.classList.remove("not-visible");
+      });
+    }
+  });
+
   return (
     <Column
       position="relative"
@@ -128,180 +195,61 @@ export default function Home() {
         fillWidth
         minHeight="0"
         padding="l"
-        className="service-tiles"
+        gap="s"
+        className="service-tiles align-center"
       >
         <div
           style={{ backgroundImage: "url('/images/backgrounds/BG1.jpg')" }}
           className="section-background background-offset"
         ></div>
-        <Grid columns={3} ref={gridRef} fillWidth gap="m" z-index="1">
-          <Column
-            radius="l"
-            border="neutral-medium"
-            borderStyle="solid"
-            className="fadeInLeft"
-          >
-            <Row gap="s">
-              <SmartImage
-                src="/images/icons/driveway.svg"
-                alt="Concrete Driveways"
-                aspectRatio="16/9"
+
+        {gridTileData
+          .reduce<React.JSX.Element[][]>((rows, tile, i) => {
+            if (i % 3 === 0) {
+              // Start a new row every 3 items
+              rows.push([]);
+            }
+
+            // Push current tile into the latest row array
+            rows[rows.length - 1].push(
+              <Column
+                key={i}
                 radius="l"
-                objectFit="fill"
-                width={20}
-              />
-              <Column gap="s">
-                <Heading onBackground="info-strong" className="banner-text">
-                  Driveway Installations
-                </Heading>
-                <Text>
-                  Let us create a durable and long-lasting driveway for your
-                  commercial, residential, or industrial property. We use
-                  high-quality materials designed to withstand the test of time.
-                </Text>
-              </Column>
+                border="neutral-medium"
+                borderStyle="solid"
+                className="justify-space-between"
+                fillWidth
+                padding="s"
+                ref={(element) => {
+                  if (element) gridTileRefs.current[i] = element;
+                }}
+              >
+                <Row gap="s" className="service-tile">
+                  <Column className="service-tile-img">
+                    <img src={tile.image} alt={tile.alt} />
+                  </Column>
+                  <Column gap="s">
+                    <Heading onBackground="info-strong" className="banner-text">
+                      {tile.title}
+                    </Heading>
+                    <Text>{tile.description}</Text>
+                  </Column>
+                </Row>
+                <Column className="service-tile-button">
+                  <Button className="banner-button" size="l">
+                    Learn More
+                  </Button>
+                </Column>
+              </Column>,
+            );
+
+            return rows;
+          }, [])
+          .map((row, index) => (
+            <Row key={`row-${index}`} className="service-tile-row" gap="s">
+              {row}
             </Row>
-            <Column marginTop="l" className="service-tile">
-              <Button className="banner-button" size="l">
-                Learn More
-              </Button>
-            </Column>
-          </Column>
-          <Column radius="l" border="neutral-medium" borderStyle="solid">
-            <Row gap="s">
-              <SmartImage
-                src="/images/icons/patios.svg"
-                alt="Concrete Patios"
-                aspectRatio="16/9"
-                radius="l"
-                objectFit="fill"
-                width={20}
-              />
-              <Column gap="s">
-                <Heading onBackground="info-strong" className="banner-text">
-                  Patios and Walkways
-                </Heading>
-                <Text>
-                  Looking to add a patio to your property? Contact us today! We
-                  also install durable concrete walkways. Get your FREE estimate
-                  now!
-                </Text>
-              </Column>
-            </Row>
-            <Column marginTop="l" className="service-tile">
-              <Button className="banner-button" size="l">
-                Learn More
-              </Button>
-            </Column>
-          </Column>
-          <Column radius="l" border="neutral-medium" borderStyle="solid">
-            <Row gap="s">
-              <SmartImage
-                src="/images/icons/foundations.svg"
-                alt="Concrete Foundations"
-                aspectRatio="16/9"
-                radius="l"
-                objectFit="fill"
-                width={20}
-              />
-              <Column gap="s">
-                <Heading onBackground="info-strong" className="banner-text">
-                  Foundations and Slabs
-                </Heading>
-                <Text>
-                  Get expert concrete services, including new slabs, foundation
-                  walls, and more.
-                </Text>
-              </Column>
-            </Row>
-            <Column marginTop="l" className="service-tile">
-              <Button className="banner-button" size="l">
-                Learn More
-              </Button>
-            </Column>
-          </Column>
-          <Column radius="l" border="neutral-medium" borderStyle="solid">
-            <Row gap="s">
-              <SmartImage
-                src="/images/icons/publicworks.svg"
-                alt="Public Works"
-                aspectRatio="16/9"
-                radius="l"
-                objectFit="fill"
-                width={20}
-              />
-              <Column gap="s">
-                <Heading onBackground="info-strong" className="banner-text">
-                  Public Works
-                </Heading>
-                <Text>
-                  Choose us for reliable public works concrete services! We
-                  handle city sidewalks, gutters, driveway approaches, and
-                  permit requests. Contact us today!
-                </Text>
-              </Column>
-            </Row>
-            <Column marginTop="l" className="service-tile">
-              <Button className="banner-button" size="l">
-                Learn More
-              </Button>
-            </Column>
-          </Column>
-          <Column radius="l" border="neutral-medium" borderStyle="solid">
-            <Row gap="s">
-              <SmartImage
-                src="/images/icons/wheelchair.svg"
-                alt="Wheelchair Ramps"
-                aspectRatio="16/9"
-                radius="l"
-                objectFit="fill"
-                width={20}
-              />
-              <Column gap="s">
-                <Heading onBackground="info-strong" className="banner-text">
-                  Wheelchair Ramps
-                </Heading>
-                <Text>
-                  Reliable and effective handicap ramp solutions for your home,
-                  office, or business.
-                </Text>
-              </Column>
-            </Row>
-            <Column marginTop="l" className="service-tile">
-              <Button className="banner-button" size="l">
-                Learn More
-              </Button>
-            </Column>
-          </Column>
-          <Column radius="l" border="neutral-medium" borderStyle="solid">
-            <Row gap="s">
-              <SmartImage
-                src="/images/icons/industrial.svg"
-                alt="Industrial Services"
-                aspectRatio="16/9"
-                radius="l"
-                objectFit="fill"
-                width={20}
-              />
-              <Column gap="s">
-                <Heading onBackground="info-strong" className="banner-text">
-                  Industrial Services
-                </Heading>
-                <Text>
-                  Trust us for your next industrial concrete installation
-                  project. We specialize in equipment pads, warehouse floors,
-                  flowlines, and parking lots, delivering durable and
-                  high-quality results.
-                </Text>
-              </Column>
-            </Row>
-            <Column marginTop="l" className="service-tile">
-              <Button className="banner-button" size="l">
-                Learn More
-              </Button>
-            </Column>
-          </Column>
-        </Grid>
+          ))}
       </Column>
       <Row
         position="relative"
